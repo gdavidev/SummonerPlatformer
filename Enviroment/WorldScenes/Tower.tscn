@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://24cryvfpahol"]
+
+[ext_resource type="PackedScene" uid="uid://dglqdrfoej16o" path="res://Enviroment/Door.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://Enviroment/WorldScenes/BaseRoom.tscn" id="3"]
+[ext_resource type="TileSet" uid="uid://b84olttoygv6q" path="res://Enviroment/WorldScenes/Resources/Cave.tres" id="4"]
+
+[node name="Tower" instance=ExtResource("3")]
+main_tilemap_path = NodePath("Enviroment/TileMap")
+
+[node name="RightTop" parent="Doors" index="0" instance=ExtResource("1")]
+position = Vector2(-156, -12)
+rotation = 0.0
+scale = Vector2(1, 1)
+file_path = "res://Enviroment/WorldScenes/MainHub.tscn"
+target_door = "LeftTop"
+direction = 0
+
+[node name="RightBottom" parent="Doors" index="1" instance=ExtResource("1")]
+position = Vector2(217, 433)
+rotation = 0.0
+scale = Vector2(-1, 1)
+file_path = "res://Enviroment/WorldScenes/MainHub.tscn"
+target_door = "LeftBottom"
+direction = 1
+
+[node name="TileMap" type="TileMap" parent="Enviroment" index="0"]
+tile_set = ExtResource("4")
+format = 2
+layer_0/name = "MainTiles"
+layer_0/tile_data = PackedInt32Array(2228214, 0, 3, 2228215, 65536, 3, 2228216, 65536, 3, 2228217, 65536, 3, 2228218, 65536, 3, 2228219, 65536, 3, 2228220, 65536, 3, 2228221, 65536, 3, 2228223, 65536, 3, 2228222, 65536, 3, 2162688, 65536, 3, 2162689, 65536, 3, 2162690, 65536, 3, 2162691, 65536, 3, 2162692, 65536, 3, 2162693, 65536, 3, 2162694, 65536, 3, 2162695, 131072, 3, 2228232, 0, 3, 2228233, 65536, 3, 2228234, 65536, 3, 2228235, 65536, 3, 2228236, 65536, 3, 2228237, 65536, 3, 2228238, 65536, 3, 2228239, 65536, 3, 2228240, 65536, 3, 2228241, 65536, 3, 2228242, 131072, 3, 196604, 0, 2, 196605, 65536, 2, 196606, 65536, 2, 196607, 65536, 2, 131072, 65536, 2, 131073, 65536, 2, 131074, 65536, 2, 131075, 131072, 2, 65532, 0, 0, 65533, 65536, 0, 65534, 65536, 0, 65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 131072, 0, 65539, 131072, 1, 65538, 65536, 4, 65537, 131072, 4, 65536, 196608, 4, 131071, 131072, 4, 131070, 65536, 4, 131069, 196608, 4, 131068, 0, 1)

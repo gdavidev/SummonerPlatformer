@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt672o2hp01et"]
+
+[ext_resource type="PackedScene" uid="uid://cd4vyy8s6fp4" path="res://Entities/Enemies/Larve/Larve.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://Entities/Traps/TrapPlacer.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dglqdrfoej16o" path="res://Enviroment/Door.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://Enviroment/WorldScenes/BaseRoom.tscn" id="5"]
+[ext_resource type="TileSet" uid="uid://b84olttoygv6q" path="res://Enviroment/WorldScenes/Resources/Cave.tres" id="6"]
+
+[node name="MainHub" instance=ExtResource("5")]
+main_tilemap_path = NodePath("Enviroment/TileMap")
+
+[node name="Larve" parent="Enemies" index="0" instance=ExtResource("1")]
+position = Vector2(206, -52)
+
+[node name="Larve9" parent="Enemies" index="1" instance=ExtResource("1")]
+position = Vector2(54, 19)
+collision_mask = 2
+direction = "Left"
+
+[node name="Larve10" parent="Enemies" index="2" instance=ExtResource("1")]
+position = Vector2(695, -42)
+collision_mask = 2
+direction = "Left"
+
+[node name="Larve3" parent="Enemies" index="3" instance=ExtResource("1")]
+position = Vector2(84, 61)
+
+[node name="Larve4" parent="Enemies" index="4" instance=ExtResource("1")]
+position = Vector2(627, 5)
+
+[node name="Larve5" parent="Enemies" index="5" instance=ExtResource("1")]
+position = Vector2(487, -293)
+
+[node name="Larve6" parent="Enemies" index="6" instance=ExtResource("1")]
+position = Vector2(164, -312)
+
+[node name="Larve8" parent="Enemies" index="7" instance=ExtResource("1")]
+position = Vector2(-79, -402)
+rotation = 1.57079
+direction = "Left"
+
+[node name="Larve7" parent="Enemies" index="8" instance=ExtResource("1")]
+position = Vector2(632, -271)
+
+[node name="Larve2" parent="Enemies" index="9" instance=ExtResource("1")]
+position = Vector2(290, 16)
+
+[node name="Traps" type="Node2D" parent="Enemies" index="10"]
+
+[node name="TrapPlacer8" parent="Enemies/Traps" index="0" instance=ExtResource("2")]
+position = Vector2(617, -192)
+rotation = -1.5708
+type = 0
+quantity = 2
+
+[node name="TrapPlacer" parent="Enemies/Traps" index="1" instance=ExtResource("2")]
+position = Vector2(166, 88)
+type = 0
+quantity = 8
+
+[node name="TrapPlacer2" parent="Enemies/Traps" index="2" instance=ExtResource("2")]
+position = Vector2(448.46, 72.0533)
+type = 0
+quantity = 8
+
+[node name="TrapPlacer3" parent="Enemies/Traps" index="3" instance=ExtResource("2")]
+position = Vector2(663, -253)
+rotation = 1.5708
+type = 0
+quantity = 13
+
+[node name="TrapPlacer4" parent="Enemies/Traps" index="4" instance=ExtResource("2")]
+position = Vector2(712, -32)
+rotation = -1.5708
+type = 0
+quantity = 24
+
+[node name="TrapPlacer5" parent="Enemies/Traps" index="5" instance=ExtResource("2")]
+position = Vector2(535, -176)
+rotation = 1.5708
+type = 0
+quantity = 2
+
+[node name="TrapPlacer6" parent="Enemies/Traps" index="6" instance=ExtResource("2")]
+position = Vector2(535, -240)
+rotation = 1.5708
+type = 0
+quantity = 2
+
+[node name="TrapPlacer7" parent="Enemies/Traps" index="7" instance=ExtResource("2")]
+position = Vector2(535, -240)
+rotation = 1.5708
+type = 0
+quantity = 2
+
+[node name="LeftTop" parent="Doors" index="0" instance=ExtResource("3")]
+position = Vector2(-137, -287)
+rotation = 0.0
+scale = Vector2(1, 1)
+file_path = "res://Enviroment/WorldScenes/Tower.tscn"
+target_door = "RightTop"
+direction = 0
+
+[node name="RightTop" parent="Doors" index="1" instance=ExtResource("3")]
+position = Vector2(761, -272)
+rotation = 0.0
+scale = Vector2(-1, 1)
+file_path = "res://Enviroment/WorldScenes/Tower.tscn"
+target_door = "RightTop"
+direction = 1
+
+[node name="LeftBottom" parent="Doors" index="2" instance=ExtResource("3")]
+position = Vector2(-137, 80)
+rotation = 0.0
+scale = Vector2(1, 1)
+file_path = "res://Enviroment/WorldScenes/StartingRoom.tscn"
+target_door = "Right"
+direction = 0
+
+[node name="Top" parent="Doors" index="3" instance=ExtResource("3")]
+position = Vector2(-6, -473)
+scale = Vector2(1, 1)
+file_path = "res://Enviroment/WorldScenes/Hole.tscn"
+target_door = "Bottom"
+direction = 2
+
+[node name="TileMap" type="TileMap" parent="Enviroment" index="0"]
+tile_set = ExtResource("6")
+format = 2
+
+[node name="RespawnPosition" parent="." index="4"]
+position = Vector2(540, 25)

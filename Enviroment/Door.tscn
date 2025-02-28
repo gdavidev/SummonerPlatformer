@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dglqdrfoej16o"]
+
+[ext_resource type="Script" path="res://Enviroment/Door.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(20, 86)
+
+[node name="Door" type="Area2D" groups=["Door"]]
+rotation = 1.5708
+scale = Vector2(-1, -1)
+collision_layer = 0
+script = ExtResource("1")
+direction = 3
+
+[node name="ToSides" type="Node2D" parent="."]
+
+[node name="SpawnPosLeft" type="Marker2D" parent="ToSides"]
+position = Vector2(41, -30)
+
+[node name="SpawnPosRight" type="Marker2D" parent="ToSides"]
+position = Vector2(41, 29)
+
+[node name="Front" type="Node2D" parent="."]
+visible = false
+
+[node name="SpawnPos" type="Marker2D" parent="Front"]
+position = Vector2(26, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="ToDown" type="Node2D" parent="."]
+position = Vector2(45, 0)
+
+[node name="SpawnPos" type="Marker2D" parent="ToDown"]
+visible = false
+
+[node name="DoorInvisibleWall" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorInvisibleWall"]
+shape = SubResource("1")
+
+[connection signal="body_entered" from="." to="." method="_on_SceneTransitionTrigger_body_entered"]

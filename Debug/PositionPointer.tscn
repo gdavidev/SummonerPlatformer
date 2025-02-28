@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture2D" id=1]
+[ext_resource path="res://Debug/PositionPointer.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/Kenney Mini.ttf" type="FontFile" id=3]
+
+[sub_resource type="FontFile" id=1]
+size = 24
+spacing_top = -2
+font_data = ExtResource( 3 )
+
+[node name="PositionPointer" type="Sprite2D"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource( 1 )
+text = "aaaa"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
